@@ -61,8 +61,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 228086383797409773}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.125, y: 0, z: 0}
+  m_LocalScale: {x: 0.8333, y: 1, z: 1}
   m_Children:
   - {fileID: 4845520344196806566}
   - {fileID: 7479084664206469880}
@@ -109,7 +109,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3daf2297739ffc54eadcab1740c34ffe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e2dcc176f651a654281e6fbf4b6f16a8, type: 3}
   m_Color: {r: 1, g: 0.612016, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -133,18 +133,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.2148931}
+  m_Offset: {x: 0.000000029802322, y: 0.2468996}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.5, y: 1.15}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5702138}
+  m_Size: {x: 1.504807, y: 0.6342268}
   m_EdgeRadius: 0
 --- !u!70 &1802236299082271922
 CapsuleCollider2D:
@@ -159,8 +159,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000004187447, y: -0.35126853}
-  m_Size: {x: 1.0000001, y: 0.29746422}
+  m_Offset: {x: 0.021948162, y: -0.37413028}
+  m_Size: {x: 1.4609114, y: 0.34318766}
   m_Direction: 1
 --- !u!50 &7280793007210748736
 Rigidbody2D:
@@ -226,6 +226,10 @@ MonoBehaviour:
   controller: {fileID: 0}
   joystick: {fileID: 0}
   runSpeed: 40
+  jHMove: 0.2
+  negJHMove: 0.2
+  jVMove: 0.2
+  negJVMove: 0.2
 --- !u!114 &-7708730031217691532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,10 +243,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 8477787105795476238}
-  bulletPrefab: {fileID: 8439085088621333852, guid: 3e59b4aa39d8c1e4db77087705bca94a,
-    type: 3}
+  damage: 0
   joystick: {fileID: 0}
-  shootDeadZone: 0.8
+  lineRenderer: {fileID: 0}
+  shootButton: {fileID: 0}
 --- !u!1 &392309542506214278
 GameObject:
   m_ObjectHideFlags: 0

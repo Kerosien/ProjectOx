@@ -282,7 +282,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.9559822, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.9882353, g: 1, b: 0.6392157, a: 1}
   m_Intensity: 1.02
   m_LightVolumeOpacity: 0.29
   m_ApplyToSortingLayers: 00000000
@@ -920,7 +920,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.9559822, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.9843322, g: 1, b: 0.6367924, a: 1}
   m_Intensity: 1.02
   m_LightVolumeOpacity: 0.29
   m_ApplyToSortingLayers: 00000000
@@ -1244,8 +1244,8 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.16
+  m_Color: {r: 0.9882353, g: 1, b: 0.6392157, a: 1}
+  m_Intensity: 0.27
   m_LightVolumeOpacity: 0.29
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
@@ -1386,7 +1386,7 @@ PrefabInstance:
     - target: {fileID: 4876790421585960260, guid: 59136a9e076d12d419fb7e41295e0869,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.69
+      value: 15.47
       objectReference: {fileID: 0}
     - target: {fileID: 4876790421585960260, guid: 59136a9e076d12d419fb7e41295e0869,
         type: 3}
@@ -1651,5 +1651,25 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 788462186}
+    - target: {fileID: 8352198028129470780, guid: d4ec69d17c3d2a049b6cdcc957262535,
+        type: 3}
+      propertyPath: jHMove
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8352198028129470780, guid: d4ec69d17c3d2a049b6cdcc957262535,
+        type: 3}
+      propertyPath: negJHMove
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8352198028129470780, guid: d4ec69d17c3d2a049b6cdcc957262535,
+        type: 3}
+      propertyPath: jVMove
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8352198028129470780, guid: d4ec69d17c3d2a049b6cdcc957262535,
+        type: 3}
+      propertyPath: negJVMove
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4ec69d17c3d2a049b6cdcc957262535, type: 3}

@@ -10,6 +10,10 @@ public class PlayerMovement2D : MonoBehaviour
     public Joystick joystick;
 
     public float runSpeed = 40f;
+    public float jHMove;
+    public float negJHMove;
+    public float jVMove;
+    public float negJVMove;
 
     float horizontalMove = 0f;
     bool jump = false;
@@ -19,11 +23,11 @@ public class PlayerMovement2D : MonoBehaviour
     {
         //horizontalMove = joystick.Horizontal * runSpeed;       I like this movement alot but will flesh it out before choosing
 
-        if (joystick.Horizontal >= .2f)
+        if (joystick.Horizontal >= jHMove)
         {
             horizontalMove = runSpeed;
         }
-        else if (joystick.Horizontal <= -.2f)
+        else if (joystick.Horizontal <= -negJHMove)
         {
             horizontalMove = -runSpeed;
         }
@@ -34,12 +38,12 @@ public class PlayerMovement2D : MonoBehaviour
 
         float verticalMove = joystick.Vertical;
 
-        if (verticalMove >= .5f)
+        if (verticalMove >= jVMove)
         {
             jump = true;
         }
 
-        if (verticalMove <= -.5f)
+        if (verticalMove <= -negJVMove)
         {
             crouch = true;
         }
