@@ -5,51 +5,35 @@ using UnityEngine.UI;
 
 public class WeaponController2D : MonoBehaviour
 {
+
     public Transform firePoint;
-    public int damage;
-    public Joystick joystick;
-    //public GameObject impactEffect;
-    public LineRenderer lineRenderer;
-    public Button shootButton;
+    public GameObject bulletPrefab;
+    public Joystick Joystick;
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
-
-        if (shootButton.enabled)
+        if (Joystick.Horizontal >= .2f)
         {
-            StartCoroutine(Shoot());
+            Shoot();
         }
-    }
-
-    IEnumerator Shoot ()
-    {
-        RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.right);
-        
-        if (hitInfo)
+        else if (Joystick.Horizontal <= -.2f)
         {
-            Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage(damage);
-            }
-
-            //Instantiate(impactEffect, hitInfo.point, Quaternion.identity);
-
-            lineRenderer.SetPosition(0, firePoint.position);
-            lineRenderer.SetPosition(1, hitInfo.point);
-
+            Shoot();
         }
-        else
+        if (Joystick.Vertical >= .2f)
         {
-            lineRenderer.SetPosition(0, firePoint.position);
-            lineRenderer.SetPosition(1, firePoint.position + firePoint.right * 100);
+            Shoot();
+        }
+        else if (Joystick.Vertical <= -.2f)
+        {
+            Shoot();
         }
 
-        lineRenderer.enabled = true;
 
-        yield return 0;
-
-        lineRenderer.enabled = false;
+        void Shoot ()
+        {
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        }
     }
 }
