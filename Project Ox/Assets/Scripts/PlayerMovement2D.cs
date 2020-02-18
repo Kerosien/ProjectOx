@@ -17,36 +17,22 @@ public class PlayerMovement2D : MonoBehaviour
 
     void Update()
     {
-        //horizontalMove = joystick.Horizontal * runSpeed;       I like this movement alot but will flesh it out before choosing
-
-        if (joystick.Horizontal >= .2f)
-        {
-            horizontalMove = runSpeed;
-        }
-        else if (joystick.Horizontal <= -.2f)
-        {
-            horizontalMove = -runSpeed;
-        }
-        else
-        {
-            horizontalMove = 0f;
-        }
 
         float verticalMove = joystick.Vertical;
 
-        if (verticalMove >= .5f)
+        // Movement will allow you to walk
+        horizontalMove = joystick.Horizontal * runSpeed;
+
+        //Jumping
+        if (verticalMove >= 0.7f)
         {
             jump = true;
         }
 
-        if (verticalMove <= -.5f)
+        //Crouching
+        if (verticalMove <= -0.7f)
         {
             crouch = true;
-        }
-
-        else
-        {
-            crouch = false;
         }
     }
 
@@ -54,6 +40,6 @@ public class PlayerMovement2D : MonoBehaviour
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
-
+        crouch = false;
     }
 }
