@@ -10,10 +10,6 @@ public class PlayerMovement2D : MonoBehaviour
     public Joystick joystick;
 
     public float runSpeed = 40f;
-    public float jHMove;
-    public float negJHMove;
-    public float jVMove;
-    public float negJVMove;
 
     float horizontalMove = 0f;
     bool jump = false;
@@ -21,36 +17,22 @@ public class PlayerMovement2D : MonoBehaviour
 
     void Update()
     {
-        //horizontalMove = joystick.Horizontal * runSpeed;       I like this movement alot but will flesh it out before choosing
-
-        if (joystick.Horizontal >= jHMove)
-        {
-            horizontalMove = runSpeed;
-        }
-        else if (joystick.Horizontal <= -negJHMove)
-        {
-            horizontalMove = -runSpeed;
-        }
-        else
-        {
-            horizontalMove = 0f;
-        }
 
         float verticalMove = joystick.Vertical;
 
-        if (verticalMove >= jVMove)
+        // Movement will allow you to walk
+        horizontalMove = joystick.Horizontal * runSpeed;
+
+        //Jumping
+        if (verticalMove >= 0.7f)
         {
             jump = true;
         }
 
-        if (verticalMove <= -negJVMove)
+        //Crouching
+        if (verticalMove <= -0.7f)
         {
             crouch = true;
-        }
-
-        else
-        {
-            crouch = false;
         }
     }
 
@@ -58,6 +40,6 @@ public class PlayerMovement2D : MonoBehaviour
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
-
+        crouch = false;
     }
 }

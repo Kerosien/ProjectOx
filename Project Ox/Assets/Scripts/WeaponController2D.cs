@@ -9,28 +9,36 @@ public class WeaponController2D : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public Joystick Joystick;
-
+    private float moveSpeed = 600;
+    public float movement;
+    public GameObject player;
+    
 
     private void Update()
     {
-        if (Joystick.Horizontal >= .2f)
+
+        //Rotation of the Gun
+        if (Joystick.Horizontal >= .5f)
+        {
+            transform.RotateAround(player.transform.position, Vector3.forward, movement * Time.deltaTime * -moveSpeed);
+        }
+        else if (Joystick.Horizontal <= -.5f)
+        {
+            transform.RotateAround(player.transform.position, Vector3.back, movement * Time.deltaTime * -moveSpeed);
+        }
+
+        //Shooing of the gun
+        if (Joystick.Vertical >= .5f)
         {
             Shoot();
         }
-        else if (Joystick.Horizontal <= -.2f)
-        {
-            Shoot();
-        }
-        if (Joystick.Vertical >= .2f)
-        {
-            Shoot();
-        }
-        else if (Joystick.Vertical <= -.2f)
+        else if (Joystick.Vertical <= -.5f)
         {
             Shoot();
         }
 
 
+        //Spawn in the bullet....Might be able to add the spawn delay in here
         void Shoot ()
         {
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
